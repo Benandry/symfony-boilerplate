@@ -1,0 +1,70 @@
+<nav class="bg-gray-800" x-data="{ open: false, searchOpen: false, darkMode: false }">
+	<div class=" mx-auto px-4 sm:px-6 lg:px-8">
+		<div
+			class="flex items-center justify-between h-20">
+			<!-- Logo + Recherche -->
+			<div
+				class="flex items-center">
+				<!-- Logo -->
+				<div class="flex-shrink-0">
+					<a href="#" class="flex items-center">
+						<span class="ml-2 text-white font-bold text-xl">CRM-pro</span>
+					</a>
+				</div>
+
+				<!-- Barre de recherche -->
+				<div class="hidden md:block ml-6">
+					<div class="relative">
+						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<i class="fas fa-search text-gray-400"></i>
+						</div>
+						<input type="text" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-gray-800 sm:text-sm transition duration-150 ease-in-out" placeholder="Rechercher..." style="min-width: 200px;">
+					</div>
+				</div>
+			</div>
+
+			<!-- Icônes de droite -->
+			<div
+				class="flex items-center space-x-6">
+				<!-- Bouton recherche mobile -->
+				<button @click="searchOpen = !searchOpen" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+					<i class="fas fa-search"></i>
+				</button>
+
+				<!-- Notification -->
+				<button class="text-gray-300 hover:text-white relative focus:outline-none">
+					<i class="fas fa-bell"></i>
+					<span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 transform translate-x-1/2 -translate-y-1/2"></span>
+				</button>
+
+				<!-- Paramètres -->
+				<button class="text-gray-300 hover:text-white focus:outline-none">
+					<i class="fas fa-cog"></i>
+				</button>
+
+				<!-- Thème sombre/clair -->
+				<button @click="darkMode = !darkMode" class="text-gray-300 hover:text-white focus:outline-none">
+					<i x-show="!darkMode" class="fas fa-moon"></i>
+				</button>
+
+				<!-- Langue -->
+				<button class="text-gray-300 hover:text-white focus:outline-none flex items-center">
+					<span class="text-sm mr-1">FR</span>
+					<i class="fas fa-chevron-down text-xs"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Barre de recherche mobile -->
+	<div class="md:hidden" x-show="searchOpen" @click.away="searchOpen = false" x-transition>
+		<div class="px-4 pt-3 pb-3">
+			<div class="relative">
+				<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+					<i class="fas fa-search text-gray-400"></i>
+				</div>
+				<input type="text" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-gray-800 sm:text-sm transition duration-150 ease-in-out" placeholder="Rechercher...">
+			</div>
+		</div>
+	</div>
+</nav>
